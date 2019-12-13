@@ -14,7 +14,7 @@ import { ClientInfoComponent } from './client-info/client-info.component';
 import { ClientInfoService } from './model/client-info-service';
 
 @NgModule({
-  declarations: [InvoicePositionsComponent, InvoiceComponent, SinglePositionComponent, InvoiceSummaryComponent],
+  declarations: [InvoicePositionsComponent, InvoiceComponent, SinglePositionComponent, InvoiceSummaryComponent, ClientInfoComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -30,6 +30,9 @@ import { ClientInfoService } from './model/client-info-service';
     // }
     {
       provide: ItemCatalog, useFactory: (http: HttpClient) => new HttpItemCatalog(http), deps: [HttpClient]
+    },
+    {
+      provide: ClientInfoService, useFactory: () => new ClientInfoService()
     }
   ]
 })
